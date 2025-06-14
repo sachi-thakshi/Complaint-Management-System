@@ -25,37 +25,7 @@
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            border: 1px solid #999;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #eee;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-        }
-
-        .msg {
-            color: green;
-            font-weight: bold;
-        }
-
-        .actions form {
-            display: inline-block;
-            margin-right: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
 </head>
 <body>
 

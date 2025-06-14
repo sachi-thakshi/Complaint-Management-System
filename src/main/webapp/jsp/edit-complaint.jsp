@@ -31,15 +31,7 @@
 <html>
 <head>
   <title>Edit Complaint</title>
-  <style>
-    label { display: block; margin-top: 10px; }
-    input[type=text], textarea { width: 300px; padding: 5px; }
-    button { margin-top: 15px; padding: 8px 16px; }
-    .message { font-weight: bold; margin-bottom: 10px; }
-    .success { color: green; }
-    .error { color: red; }
-    .debug { color: #c00; font-style: italic; margin-bottom: 15px; }
-  </style>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/edit-complaint.css">
 </head>
 <body>
 
@@ -61,13 +53,13 @@
   <input type="text" id="subject" name="subject" value="<%= complaint != null && complaint.getSubject() != null ? complaint.getSubject() : "" %>" required />
 
   <label for="description">Description:</label>
-  <textarea id="description" name="description" rows="5" required><%= complaint != null && complaint.getDescription() != null ? complaint.getDescription() : "" %></textarea>
+  <textarea id="description" name="description" rows="10" required><%= complaint != null && complaint.getDescription() != null ? complaint.getDescription() : "" %></textarea>
 
   <button type="submit">Update Complaint</button>
 </form>
 
 <br/>
-<a href="<%= request.getContextPath() %>/jsp/my-complaints.jsp">⬅ Back to My Complaints</a>
+<a href="<%= request.getContextPath() %>/jsp/my-complaints.jsp"> ⬅️ Back to My Complaints</a>
 
 </body>
 </html>

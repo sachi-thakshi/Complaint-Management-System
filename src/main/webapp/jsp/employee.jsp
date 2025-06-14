@@ -13,26 +13,23 @@
 <html>
 <head>
   <title>Employee Dashboard</title>
-  <style>
-    .success-msg {
-      color: green;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/employee.css">
 </head>
 <body>
-<h1>Welcome, <%= user.getUsername() %> (Employee)</h1>
-<p>This is the Employee Dashboard.</p>
+<div class="container">
+  <h1>Welcome, <%= user.getUsername() %> (Employee)</h1>
+  <p>This is the Employee Dashboard.</p>
 
-<% if ("success".equals(msg)) { %>
-<p class="success-msg">Complaint submitted successfully!</p>
-<% } %>
+  <% if ("success".equals(msg)) { %>
+  <p class="success-msg">✅ Complaint submitted successfully!</p>
+  <% } %>
 
-<ul>
-  <li><a href="${pageContext.request.contextPath}/submit-complaint">Submit a New Complaint</a></li>
-  <li><a href="${pageContext.request.contextPath}/employeeComplaints">View My Complaints</a></li>
-  <li><a href="<%= request.getContextPath() %>/auth">Logout</a></li>
-</ul>
+  <ul>
+    <li><a href="${pageContext.request.contextPath}/submit-complaint" class="submit-btn">Submit a New Complaint</a></li>
+    <li><a href="${pageContext.request.contextPath}/employeeComplaints" class="view-btn">View My Complaints</a></li>
+    <li><a href="<%= request.getContextPath() %>/auth" class="logout-btn">Logout</a></li>
+  </ul>
+</div>
 
 </body>
 </html>

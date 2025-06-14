@@ -19,9 +19,10 @@
 <html>
 <head>
   <title>Submit New Complaint</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/complaint-form.css">
 </head>
 <body>
-<h2>Submit a New Complaint</h2>
+<h1>Submit a New Complaint</h1>
 
 <form action="<%= request.getContextPath() %>/submit-complaint" method="post">
   <input type="hidden" name="userId" value="<%= user.getId() %>" />

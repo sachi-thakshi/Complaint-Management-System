@@ -32,52 +32,7 @@
 <html>
 <head>
     <title>My Complaints</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        th, td {
-            border: 1px solid #444;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #eee;
-        }
-
-        .success-msg {
-            color: green;
-            font-weight: bold;
-        }
-
-        .error-msg {
-            color: red;
-            font-weight: bold;
-        }
-
-        input[type="submit"] {
-            padding: 5px 10px;
-            margin-right: 5px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        .resolved {
-            font-weight: bold;
-            color: gray;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/my-complaints.css">
 </head>
 <body>
 
@@ -118,7 +73,7 @@
         <td><%= c.getRemarks() == null ? "" : c.getRemarks() %></td>
         <td>
             <% if (!"Resolved".equalsIgnoreCase(status)) { %>
-            <a href="<%= request.getContextPath() %>/jsp/edit-complaint.jsp?id=<%= c.getId() %>">Edit</a>
+            <a href="<%= request.getContextPath() %>/jsp/edit-complaint.jsp?id=<%= c.getId() %>" id="edit-btn">Edit</a>
 
             <form method="post" action="${pageContext.request.contextPath}/delete-complaint" style="display:inline;"
                   onsubmit="return confirm('Are you sure you want to delete this complaint?');">
@@ -136,7 +91,7 @@
 <% } %>
 
 <br>
-<a href="${pageContext.request.contextPath}/employeeDashboard">← Back to Dashboard</a>
+<a href="${pageContext.request.contextPath}/employeeDashboard" id="back-btn">⬅️ Back to Dashboard</a>
 
 </body>
 </html>

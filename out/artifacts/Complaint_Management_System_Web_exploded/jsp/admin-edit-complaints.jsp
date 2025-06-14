@@ -27,48 +27,7 @@
 <html>
 <head>
   <title>Edit Complaint</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-
-    .form-container {
-      width: 500px;
-      margin: 50px auto;
-      padding: 20px;
-      border: 1px solid #aaa;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-    }
-
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    input[type="text"],
-    select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-    }
-
-    .buttons {
-      margin-top: 15px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .buttons input {
-      padding: 10px 20px;
-    }
-
-    a {
-      text-decoration: none;
-      color: #0066cc;
-    }
-  </style>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin-edit-complaints.css">
 </head>
 <body>
 
