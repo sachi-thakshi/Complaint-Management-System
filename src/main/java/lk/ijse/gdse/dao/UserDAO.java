@@ -14,8 +14,8 @@ public class UserDAO {
 
         try(Connection connection = DBConnection.getConnection()){
             PreparedStatement pst = connection.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
-            pst.setString(1, username);
-            pst.setString(2, password);
+            pst.setString(1, username.trim());
+            pst.setString(2, password.trim());
 
             ResultSet rst = pst.executeQuery();
             if(rst.next()){

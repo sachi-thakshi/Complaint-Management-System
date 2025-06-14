@@ -10,12 +10,12 @@
 <body>
 <div class="container">
     <h2>Login</h2>
-    <form action="${pageContext.request.contextPath}/auth" method="post">
+    <form action="${pageContext.request.contextPath}/auth" method="post" onsubmit="return validateLoginForm()" >
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required />
+        <input type="text" name="username" id="username" required/>
         <br/>
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required />
+        <input type="password" name="password" id="password" required/>
         <br/>
         <input type="submit" value="Login" />
     </form>
@@ -24,5 +24,7 @@
 <c:if test="${not empty errorMsg}">
     <p style="color:red;">${errorMsg}</p>
 </c:if>
+
+<script src="${pageContext.request.contextPath}/js/login-validation.js"></script>
 </body>
 </html>

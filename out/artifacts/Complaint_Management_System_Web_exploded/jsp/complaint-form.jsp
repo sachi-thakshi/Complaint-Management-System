@@ -24,14 +24,14 @@
 <body>
 <h1>Submit a New Complaint</h1>
 
-<form action="<%= request.getContextPath() %>/submit-complaint" method="post">
+<form action="<%= request.getContextPath() %>/submit-complaint" method="post" onsubmit="return validateComplaintForm()">
   <input type="hidden" name="userId" value="<%= user.getId() %>" />
 
   <label>Subject:</label><br>
-  <input type="text" name="subject" required /><br><br>
+  <input id="subject" type="text" name="subject" required /><br><br>
 
   <label>Description:</label><br>
-  <textarea name="description" rows="5" cols="30" required></textarea><br><br>
+  <textarea id="description" name="description" rows="5" cols="30" required></textarea><br><br>
 
   <button type="submit">Submit Complaint</button>
 </form>
