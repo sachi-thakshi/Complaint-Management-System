@@ -32,6 +32,10 @@
 <h1>Welcome, <%= user.getUsername() %> (Admin)</h1>
 <p>This is the Admin Dashboard.</p>
 
+<form action="<%= request.getContextPath() %>/users" method="GET">
+    <button type="submit" id="user-btn">View Users</button>
+</form>
+
 <% if (message != null) { %>
 <p class="msg"><%= message %></p>
 <% } %>

@@ -19,6 +19,7 @@
         <br/>
         <input type="submit" value="Login" />
     </form>
+    <p>Don't have an account? <a href="registration-user.jsp">Register Now</a></p>
 </div>
 
 <c:if test="${not empty errorMsg}">

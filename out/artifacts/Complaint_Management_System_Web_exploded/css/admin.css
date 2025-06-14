@@ -67,7 +67,6 @@ button {
     transition: background-color 0.3s ease;
 }
 
-/* Color buttons */
 .actions form:first-child button {
     background-color: #27ae60;
     color: white;
@@ -98,4 +97,23 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+#user-btn {
+    background-color: #0f1968;
+    color: #fff;
+    padding: 12px 24px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#user-btn:hover {
+    background-color: #0a133c;
+    transform: translateY(-2px);
 }
