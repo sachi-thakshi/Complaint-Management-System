@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    background: linear-gradient(to bottom, #20C9FF, #0008BB);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@ form {
 h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #333333;
+    color: #e4dfdf;
     font-weight: 600;
     font-size: 40px;
 }
@@ -85,6 +85,10 @@ p {
 p[style*="color:red"] {
     color: #e74c3c !important;
     font-weight: bold;
+}
+
+a{
+    color: #fff;
 }
 
 @keyframes fadeIn {
