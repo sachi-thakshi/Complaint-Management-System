@@ -98,27 +98,7 @@
 <br>
 <a href="${pageContext.request.contextPath}/employeeDashboard" id="back-btn">⬅️ Back to Dashboard</a>
 
-<script>
-    document.querySelectorAll('.delete-btn').forEach(button => {
-        button.addEventListener('click', function () {
-            const form = this.closest('form');
+<script src="${pageContext.request.contextPath}/js/myComplaints.js"></script>
 
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "This complaint will be permanently deleted!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'Cancel'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            });
-        });
-    });
-</script>
 </body>
 </html>
