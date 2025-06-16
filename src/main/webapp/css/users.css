@@ -22,7 +22,7 @@ td {
 
 th {
     padding: 10px 15px;
-    background-color: #6a82fb;
+    background-color: #3e1f2c;
     color: white;
 }
 
@@ -68,12 +68,12 @@ a.back-link:hover {
     background-color: #1e874b;
 }
 
-.delete-btn {
+.delete-user-btn{
     background-color: #e74c3c;
     color: white;
 }
 
-.delete-btn:hover {
+.delete-user-btn:hover {
     background-color: #c0392b;
 }
 

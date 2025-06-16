@@ -26,6 +26,7 @@
 <head>
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -68,9 +69,13 @@
                 <button type="submit">Edit</button>
             </form>
 
-            <form method="POST" action="adminDashboard" onsubmit="return confirm('Are you sure you want to delete this complaint?');">
+<%--            <form method="POST" action="adminDashboard" onsubmit="return confirm('Are you sure you want to delete this complaint?');">--%>
+<%--                <input type="hidden" name="id" value="<%= complaint.getId() %>" />--%>
+<%--                <button type="submit">Delete</button>--%>
+<%--            </form>--%>
+            <form method="POST" action="adminDashboard" class="delete-form">
                 <input type="hidden" name="id" value="<%= complaint.getId() %>" />
-                <button type="submit">Delete</button>
+                <button type="button" class="delete-btn">Delete</button>
             </form>
         </td>
     </tr>
@@ -85,6 +90,30 @@
 
 <br>
 <a href="${pageContext.request.contextPath}/auth">Logout</a>
+
+
+<script>
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const form = this.closest('form');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will not be able to recover this complaint!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
+
 
 </body>
 </html>

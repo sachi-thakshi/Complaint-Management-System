@@ -33,6 +33,7 @@
 <head>
     <title>My Complaints</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/my-complaints.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -75,10 +76,14 @@
             <% if (!"Resolved".equalsIgnoreCase(status)) { %>
             <a href="<%= request.getContextPath() %>/jsp/edit-complaint.jsp?id=<%= c.getId() %>" id="edit-btn">Edit</a>
 
-            <form method="post" action="${pageContext.request.contextPath}/delete-complaint" style="display:inline;"
-                  onsubmit="return confirm('Are you sure you want to delete this complaint?');">
+<%--            <form method="post" action="${pageContext.request.contextPath}/delete-complaint" style="display:inline;"--%>
+<%--                  onsubmit="return confirm('Are you sure you want to delete this complaint?');">--%>
+<%--                <input type="hidden" name="id" value="<%= c.getId() %>"/>--%>
+<%--                <input type="submit" value="Delete"/>--%>
+<%--            </form>--%>
+            <form method="post" action="${pageContext.request.contextPath}/delete-complaint" class="delete-form" style="display:inline;">
                 <input type="hidden" name="id" value="<%= c.getId() %>"/>
-                <input type="submit" value="Delete"/>
+                <button type="button" class="delete-btn">Delete</button>
             </form>
             <% } else { %>
             <span class="resolved">Resolved</span>
@@ -93,5 +98,27 @@
 <br>
 <a href="${pageContext.request.contextPath}/employeeDashboard" id="back-btn">⬅️ Back to Dashboard</a>
 
+<script>
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const form = this.closest('form');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "This complaint will be permanently deleted!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

@@ -11,9 +11,7 @@
 <head>
   <title>Users List</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/users.css">
-  <style>
-
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -51,9 +49,13 @@
         <button type="submit" class="action-btn edit-btn">Edit</button>
       </form>
 
-      <form action="deleteUser" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
+<%--      <form action="deleteUser" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">--%>
+<%--        <input type="hidden" name="id" value="<%= user.getId() %>">--%>
+<%--        <button type="submit" class="action-btn delete-btn">Delete</button>--%>
+<%--      </form>--%>
+      <form action="deleteUser" method="POST" class="delete-user-form">
         <input type="hidden" name="id" value="<%= user.getId() %>">
-        <button type="submit" class="action-btn delete-btn">Delete</button>
+        <button type="button" class="action-btn delete-user-btn">Delete</button>
       </form>
     </td>
   </tr>
@@ -66,6 +68,28 @@
 
 <a href="${pageContext.request.contextPath}/adminDashboard" class="back-link">⬅️ Back to Dashboard</a>
 
+<script>
+  document.querySelectorAll('.delete-user-btn').forEach(button => {
+    button.addEventListener('click', function () {
+      const form = this.closest('form');
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "This user will be permanently deleted!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete!',
+        cancelButtonText: 'Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          form.submit();
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
 
