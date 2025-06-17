@@ -46,6 +46,7 @@
     <label>Status</label>
     <select name="status" required>
       <option value="Pending" <%= "Pending".equals(complaint.getStatus()) ? "selected" : "" %>>Pending</option>
+      <option value="in_progress" <%= "in_progress".equals(complaint.getStatus()) ? "selected" : "" %>>In Progress</option>
       <option value="Resolved" <%= "Resolved".equals(complaint.getStatus()) ? "selected" : "" %>>Resolved</option>
     </select>
 
