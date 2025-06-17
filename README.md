@@ -58,13 +58,12 @@ The project showcases the practical use of **Java EE technologies**, especially 
     - **dao/** &nbsp;&nbsp;_# DAO classes for DB access_
     - **model/** &nbsp;&nbsp;_# POJOs / JavaBeans_
     - **util/** &nbsp;&nbsp;_# DBCP config and utilities_
-  - **webapp/**
-    - **jsp/** &nbsp;&nbsp;_# JSP files (views)_
-    - **css/** &nbsp;&nbsp;_# Styling_
-    - **js/** &nbsp;&nbsp;_# JS for validation and SweetAlert_
   - **web/**
     - **WEB-INF/** &nbsp;&nbsp;_# Web app config files_
     - **web.xml** &nbsp;&nbsp;_# Deployment descriptor_
+    - **jsp/** &nbsp;&nbsp;_# JSP files (views)_
+    - **css/** &nbsp;&nbsp;_# Styling_
+    - **js/** &nbsp;&nbsp;_# JS for validation and SweetAlert_
   - **db/**
     - **schema.sql** &nbsp;&nbsp;_# MySQL schema dump_
   - **README.md**
