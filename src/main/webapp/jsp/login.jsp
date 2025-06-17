@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body>
+<h1>🏛️ Municipal IT Division - Complaint Management System</h1>
 <div class="container">
-    <h2>Login</h2>
     <form action="${pageContext.request.contextPath}/auth" method="post" onsubmit="return validateLoginForm()" >
+        <h2>Login</h2>
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" required/>
         <br/>

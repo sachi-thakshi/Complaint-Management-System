@@ -8,9 +8,17 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(to bottom, #20C9FF, #0008BB);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+h1{
+    color: black;
+    font-size: 50px;
+    font-weight: bolder;
+    margin-bottom: 100px;
 }
 
 .container {
@@ -29,9 +37,9 @@ form {
 h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #e4dfdf;
-    font-weight: 600;
-    font-size: 40px;
+    color: #1a1e67;
+    font-weight: 800;
+    font-size: 37px;
 }
 
 label {

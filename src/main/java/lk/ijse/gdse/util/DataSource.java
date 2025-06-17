@@ -1,11 +1,11 @@
-package lk.ijse.gdse.db;
+package lk.ijse.gdse.util;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DataSource {
     private static final BasicDataSource ds = new BasicDataSource();
 
     static {

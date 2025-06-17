@@ -1,6 +1,6 @@
 package lk.ijse.gdse.dao;
 
-import lk.ijse.gdse.db.DBConnection;
+import lk.ijse.gdse.util.DataSource;
 import lk.ijse.gdse.model.Complaint;
 
 import java.sql.Connection;
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ComplaintDAO {
     public boolean insertComplaint(Complaint complaint) {
-        try(Connection connection = DBConnection.getConnection()) {
+        try(Connection connection = DataSource.getConnection()) {
             PreparedStatement pst = connection.prepareStatement("INSERT INTO complaints (user_id, subject, description, status) VALUES (?, ?, ?, 'Pending')");
             pst.setInt(1, complaint.getUserId());
             pst.setString(2, complaint.getSubject());
@@ -28,7 +28,7 @@ public class ComplaintDAO {
     public List<Complaint> getComplaintsByUserId(int userId) {
         List<Complaint> list = new ArrayList<>();
 
-        try (Connection connection = DBConnection.getConnection()){
+        try (Connection connection = DataSource.getConnection()){
             PreparedStatement pst = connection.prepareStatement("SELECT * FROM complaints WHERE user_id=?");
             pst.setInt(1, userId);
 
@@ -51,7 +51,7 @@ public class ComplaintDAO {
     }
 
     public Complaint getComplaintById(int id) {
-        try (Connection conn = DBConnection.getConnection()) {
+        try (Connection conn = DataSource.getConnection()) {
             PreparedStatement pst = conn.prepareStatement("SELECT * FROM complaints WHERE id = ?");
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
@@ -72,7 +72,7 @@ public class ComplaintDAO {
     }
 
     public boolean updateComplaint(Complaint complaint) {
-        try (Connection conn = DBConnection.getConnection()) {
+        try (Connection conn = DataSource.getConnection()) {
             PreparedStatement pst = conn.prepareStatement("UPDATE complaints SET subject = ?, description = ? WHERE id = ?");
             pst.setString(1, complaint.getSubject());
             pst.setString(2, complaint.getDescription());
@@ -88,7 +88,7 @@ public class ComplaintDAO {
     }
 
     public boolean deleteComplaint(int id) {
-        try (Connection conn = DBConnection.getConnection()) {
+        try (Connection conn = DataSource.getConnection()) {
             PreparedStatement pst = conn.prepareStatement("DELETE FROM complaints WHERE id = ?");
             pst.setInt(1, id);
             return pst.executeUpdate() > 0;
@@ -100,7 +100,7 @@ public class ComplaintDAO {
 
     public List<Complaint> getAllComplaints() {
         List<Complaint> list = new ArrayList<>();
-        try (Connection con = DBConnection.getConnection()) {
+        try (Connection con = DataSource.getConnection()) {
             String sql = "SELECT * FROM complaints";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -124,7 +124,7 @@ public class ComplaintDAO {
     }
 
     public boolean updateAdminComplaint(int id, String status, String remarks) {
-        try (Connection con = DBConnection.getConnection()) {
+        try (Connection con = DataSource.getConnection()) {
             PreparedStatement ps = con.prepareStatement("UPDATE complaints SET status=?, remarks=? WHERE id=?");
             ps.setString(1, status);
             ps.setString(2, remarks);

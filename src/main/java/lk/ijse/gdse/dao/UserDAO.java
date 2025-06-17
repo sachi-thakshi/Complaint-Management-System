@@ -1,6 +1,6 @@
 package lk.ijse.gdse.dao;
 
-import lk.ijse.gdse.db.DBConnection;
+import lk.ijse.gdse.util.DataSource;
 import lk.ijse.gdse.model.User;
 
 import java.sql.*;
@@ -11,7 +11,7 @@ public class UserDAO {
     public User checkLogin(String username, String password) {
         User user = null;
 
-        try(Connection connection = DBConnection.getConnection()){
+        try(Connection connection = DataSource.getConnection()){
             PreparedStatement pst = connection.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
             pst.setString(1, username.trim());
             pst.setString(2, password.trim());
@@ -32,7 +32,7 @@ public class UserDAO {
     }
 
     public boolean registerUser(String username, String password, String role) {
-        try (Connection con = DBConnection.getConnection()) {
+        try (Connection con = DataSource.getConnection()) {
             String sql = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
             try (PreparedStatement ps = con.prepareStatement(sql)) {
                 ps.setString(1, username);
@@ -52,7 +52,7 @@ public class UserDAO {
     public List<User> getAllUsers() throws SQLException {
         List<User> users = new ArrayList<>();
         String sql = "SELECT * FROM users";
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = DataSource.getConnection();
              PreparedStatement pst = con.prepareStatement(sql);
              ResultSet rs = pst.executeQuery()) {
 
@@ -69,7 +69,7 @@ public class UserDAO {
 
     public boolean deleteUser(int id) {
         String sql = "DELETE FROM users WHERE id = ?";
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = DataSource.getConnection();
              PreparedStatement pst = con.prepareStatement(sql)) {
 
             pst.setInt(1, id);
@@ -83,7 +83,7 @@ public class UserDAO {
 
     public User getUserById(int id) {
         String sql = "SELECT * FROM users WHERE id = ?";
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = DataSource.getConnection();
              PreparedStatement pst = con.prepareStatement(sql)) {
 
             pst.setInt(1, id);
@@ -105,7 +105,7 @@ public class UserDAO {
 
     public boolean updateUser(int id, String username, String password, String role) {
         String sql = "UPDATE users SET username = ?, password = ?, role = ? WHERE id = ?";
-        try (Connection con = DBConnection.getConnection();
+        try (Connection con = DataSource.getConnection();
              PreparedStatement pst = con.prepareStatement(sql)) {
 
             pst.setString(1, username);
