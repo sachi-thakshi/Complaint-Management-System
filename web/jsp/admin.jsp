@@ -50,6 +50,7 @@
         <th>Description</th>
         <th>Status</th>
         <th>Remarks</th>
+        <th>Created Time</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -63,6 +64,7 @@
         <td><%= complaint.getDescription() %></td>
         <td><%= complaint.getStatus() %></td>
         <td><%= complaint.getRemarks() %></td>
+        <td><%= complaint.getCreated_at() %></td>
         <td class="actions">
             <form method="GET" action="adminEditComplaint">
                 <input type="hidden" name="id" value="<%= complaint.getId() %>" />

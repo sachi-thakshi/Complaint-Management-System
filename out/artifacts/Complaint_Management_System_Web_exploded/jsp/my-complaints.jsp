@@ -58,6 +58,7 @@
         <th>Description</th>
         <th>Status</th>
         <th>Remarks</th>
+        <th>Created Time</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -72,6 +73,7 @@
         <td><%= c.getDescription() %></td>
         <td><%= status %></td>
         <td><%= c.getRemarks() == null ? "" : c.getRemarks() %></td>
+        <td><%= c.getCreated_at() %></td>
         <td>
             <% if (!"Resolved".equalsIgnoreCase(status)) { %>
             <a href="<%= request.getContextPath() %>/jsp/edit-complaint.jsp?id=<%= c.getId() %>" id="edit-btn">Edit</a>

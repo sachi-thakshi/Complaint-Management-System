@@ -42,6 +42,7 @@ public class ComplaintDAO {
                 c.setDescription(rs.getString("description"));
                 c.setStatus(rs.getString("status"));
                 c.setRemarks(rs.getString("remarks"));
+                c.setCreated_at(rs.getTimestamp("created_at"));
                 list.add(c);
             }
         } catch (Exception e) {
@@ -63,6 +64,7 @@ public class ComplaintDAO {
                 c.setDescription(rs.getString("description"));
                 c.setStatus(rs.getString("status"));
                 c.setRemarks(rs.getString("remarks"));
+                c.setCreated_at(rs.getTimestamp("created_at"));
                 return c;
             }
         } catch (SQLException e) {
@@ -113,6 +115,7 @@ public class ComplaintDAO {
                 c.setDescription(rs.getString("description"));
                 c.setStatus(rs.getString("status"));
                 c.setRemarks(rs.getString("remarks"));
+                c.setCreated_at(rs.getTimestamp("created_at"));
 
                 list.add(c);
             }

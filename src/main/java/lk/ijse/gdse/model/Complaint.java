@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
@@ -16,4 +17,5 @@ public class Complaint implements Serializable {
     private String description;
     private String status;
     private String remarks;
+    private Timestamp created_at;
 }
